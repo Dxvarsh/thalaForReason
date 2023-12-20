@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <title>thalaOrNot | Dx</title>
+</head>
+<body  onload="modal()">
+    <div id="video">
+        <video src="./thala.mp4" id="vid"></video>
+    </div>
+    <div id="main">
+        <div id="fs">
+            <div class="modal" id="modal">
+                <h2>Check your name is Thala or not...!</h2>
+                <h4>Do you know..!</h4>
+                <ul>
+                    <li>Why there are only 7 colors in rainbow🌈?</li>
+                    <li>Why there are only 7 Wonders?</li>
+                    <li>Why there are only 7 sea in the world? 🌊</li>
+                    <li>Even DEVARSH have 7 letters...!💀</li>
+                </ul>
+                <button id="okBtn">OK</button>
+            </div>
+        </div>
+        
+        <div id="card">
+            <input type="text" name="" id="name">
+            <button id="check" onclick="check(document.getElementById('name').value)">Check</button>
+        </div>
+        
+    </div>
+    <div id="yes">
+        <h2> ✅Thala for Reason..!</h2>
+    </div>  
+    <div id="no">
+        <h2>🚫Not Thala</h2>
+    </div>
+
+    <script>
+        var name;
+        var vid = document.querySelector("#vid");
+        window.onload = function(){
+            document.querySelector("#modal").style.top = "50%";
+            document.querySelector("#modal").style.opacity = 1;
+        }
+        /* body.addEventListener("load", function(){
+            
+            alert("bhag bc");
+        }) */  
+        document.querySelector("#okBtn").addEventListener("click", function(){
+            document.querySelector("#modal").style.top = "40%";
+            document.querySelector("#modal").style.opacity = 0;
+            document.querySelector("#fs").style.opacity = 0;
+            setTimeout(function(){
+                document.querySelector("#fs").style.zIndex = "-1";
+            }, 900);
+        })
+
+        function check(a){
+            name = a
+            var i = 0;
+            if(name.length === 7){
+                var audio = new Audio("Thala Theme Song Bole Jo Koyal Bago Mein.mp3");
+                document.querySelector("#yes").style.top = "20%";
+                document.querySelector("#yes").style.opacity = 1;
+                document.querySelector("#video").style.transform = "scale(1."+ i +")";
+                setTimeout(function(){
+                    document.querySelector("#yes").style.top = "10%";
+                    document.querySelector("#yes").style.opacity = 0;
+                }, 4000)
+                // audio.play();
+                vid.play();
+                setTimeout(function(){
+                    document.querySelector("#video").style.transform = "scale(0."+ i +")";
+                }, 16000)
+            }
+            else{
+                document.querySelector("#no").style.top = "20%";
+                document.querySelector("#no").style.opacity = 1;
+                setTimeout(function(){
+                    document.querySelector("#no").style.top = "10%";
+                    document.querySelector("#no").style.opacity = 0;
+                }, 4000)
+            }
+        }
+
+        
+    </script>
+</body>
+</html>
